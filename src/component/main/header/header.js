@@ -6,7 +6,7 @@ const Header = () => {
         <div className={styles.container}>
             <img style={styles.imagestyle} alt="logo" src="img/logo.png" />
             <div className={styles.mypage}>
-                마이페이지 공간
+                <img style={styles.user} alt="user" src="img/user.png"></img>로그인
             </div>
         </div>
     );
