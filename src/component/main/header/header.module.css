@@ -1,0 +1,14 @@
+.container {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.container img{
+    max-height: 100px;
+    max-width: 100px;
+}
+
+.mypage{
+    border:1px solid
+}
