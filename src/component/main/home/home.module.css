@@ -1,0 +1,22 @@
+.center{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.box .list{
+    border: 1px solid black;
+    font-size : 10px;
+}
+.box p{
+    font-size : 15px;
+    font-weight: 100;
+}
+
+.center .box{
+    font-size : 20px;
+    font-weight: bold;
+    width : 80%;
+    margin-top : 20px;
+}

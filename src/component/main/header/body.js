@@ -1,27 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './body.module.css'
+import { Link, Route, Routes, Outlet } from 'react-router-dom'
+import Login from '../login/login';
+import Home from '../home/home';
+import Member from '../member/member';
 
 const Body = () => {
+    const [home, setHome] = useState(true);
     return (
-        <div className={styles.container}>
-            <div className={styles.left}>
-                왼쪽구역
-            </div>
-            <div className={styles.center}>
-                <div>
-                    TODO 하루 할일 리스트
-                </div>
-                <div>
-                    인기 스터디방
-                </div>
-                <div>
-                    관심 스터디방
+            <div className={styles.container}>
+                <div className={styles.side}>
+                </div>           
+                <Outlet/>  
+                <div className={styles.side}>
                 </div>
             </div>
-            <div className={styles.right}>
-                오른쪽구역
-            </div>
-        </div>
+            
     );
 };
 
