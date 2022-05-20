@@ -1,25 +1,60 @@
-import React from 'react';
+import {React, useState} from 'react';
 import styles from './login.module.css'
 import { Form , Input , Checkbox , Button} from 'antd';
 import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import * as Post from '../../../axios/user/post';
+import { useDispatch } from 'react-redux';
+import { onlogin } from '../../../redux/store';
 
 const Login = () => {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const onLogin = () => dispatch(onlogin());
+    const [user,setUser] = useState({
+        name:'',
+        password:''
+    });
+
+    const onchange = e =>{
+        const {name, value} = e.target;
+        setUser({
+            ...user,
+            [name]:value
+        })
+    }
+
+    const userPost = async(e) => {
+        e.preventDefault(); 
+        const post = await Post.post(user);
+        if(post)
+        {
+            alert("로그인이 성공적으로 되었습니다.");
+            onLogin();
+            setUser({name:'', password:''});
+            navigate("/");
+        }else{
+            alert("아이디 또는 비밀번호는 틀립니다.");
+            navigate("/login"); 
+        }
+    }
+
     return (
         <div className={styles.login}>
-            <Form className={styles.form}>
+            <form className={styles.form} onSubmit={userPost}>
                 <div>
                     <label htmlFor="user-id">아이디</label><br/>
-                    <Input name="user-id"  />
+                    <input type="text" name="name" onChange={onchange}/>
                 </div>
                 <div>
                     <label htmlFor="user-password">비밀번호</label><br/>
-                    <Input name="user-password" type="password"  />
+                    <input name="password" type="password" onChange={onchange}/>
                 </div>
                 <div style={{marginTop:10}}>
-                    <Button type="primary" htmlType="submit" >로그인</Button>&nbsp;&nbsp;&nbsp;
+                <button type="submit">로그인</button>
                     <Link to="/member"><Button type="primary" htmlType="submit" >회원가입</Button></Link>
                 </div>
-            </Form>
+            </form>
         </div>
     );
 };

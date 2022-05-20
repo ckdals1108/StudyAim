@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './member.module.css'
-import put from '../../../axios/put';
+import put from '../../../axios/user/put';
 import { useNavigate } from "react-router-dom";
 
 const Member = () => {
@@ -37,12 +37,9 @@ const Member = () => {
             <form onSubmit={userPost}>
                 <div>
                     <label htmlFor="user-id">아이디</label><br/>
-                    <input type="text" name="id" onChange={onchange}/>
-                </div>
-                <div>
-                    <label htmlFor="user-nick">닉네임</label><br/>
                     <input type="text" name="name" onChange={onchange}/>
                 </div>
+
                 <div>
                     <label htmlFor="user-password">비밀번호</label><br/>
                     <input name="password" type="password" onChange={onchange}/>

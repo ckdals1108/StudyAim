@@ -12,6 +12,6 @@ export default (user) => {
             'Content-type' : 'application/json',
             'Accept' : 'application/json'
         }
-    }).then((response) => {console.log(response.data)})
-    .catch((response) => {console.log('Error!')});
+    }).then((response) => {console.log(response.data); return true})
+    .catch((response) => {console.log('Error!'); return false});
 };
