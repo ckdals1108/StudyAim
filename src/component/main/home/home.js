@@ -1,8 +1,13 @@
 import React from 'react';
 import styles from './home.module.css';
-import { Outlet } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const Home = () => {
+
+    useEffect(() => {
+        console.log("home");
+    })
+
     return (
         <div className={styles.center}>
                 <div className={styles.box}>

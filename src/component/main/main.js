@@ -12,15 +12,15 @@ const Main = () => {
     return (
         <Routes>
             <Route element={<Layout/>}>
-                <Route path="/*" element={<Home/>} />
+                <Route exact={true} path="/" element={<Home/>} />
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/member" element={<Member/>}/>
-                <Route path="/board/english" element={<Board kind="토익" ekind="english"/>}/>
-                <Route path="/board/job" element={<Board kind="취업" ekind="job"/>}/>
-                <Route path="/board/license" element={<Board kind="자격증" ekind="license"/>}/>
-                <Route path="/board/write/english" element={<Write kind="토익"/>}/>
-                <Route path="/board/write/job" element={<Write kind="취업"/>}/>
-                <Route path="/board/write/license" element={<Write kind="자격증"/>}/>
+                <Route path="/board/english" element={<Board kind="토익" ekind="ENGLISH" />}/>
+                <Route path="/board/job" element={<Board kind="취업" ekind="JOB"/>}/>
+                <Route path="/board/license" element={<Board kind="자격증" ekind="LICENSE"/>}/>
+                <Route path="/board/write/english" element={<Write kind="토익" ekind="ENGLISH"/>}/>
+                <Route path="/board/write/job" element={<Write kind="취업" ekind="JOB"/>}/>
+                <Route path="/board/write/license" element={<Write kind="자격증" ekind="LICENSE"/>}/>
             </Route>
         </Routes>
     );

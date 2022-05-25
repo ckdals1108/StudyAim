@@ -14,14 +14,13 @@ const Header = () => {
     const onclick = () => {
         localStorage.removeItem('user-token');
         offLogin();
-        console.log(login);
     }
 
     return (
         <div className={styles.container}>
             <Link to="/"><img style={styles.imagestyle} alt="logo" src="img/logo.png" /></Link>
             <div className={styles.mypage}>
-            {login?
+            {localStorage.getItem('user-token') !== null?
                 <><img style={styles.user} alt="user" src="img/user.png"></img><Link to="/" onClick={onclick}>로그아웃</Link></>
                 :<><Link to="/login">로그인</Link></>
             }

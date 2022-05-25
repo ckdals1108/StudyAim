@@ -5,12 +5,13 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import * as Post from '../../../axios/user/post';
 import { useDispatch } from 'react-redux';
-import { onlogin } from '../../../redux/store';
+import { onlogin, userId } from '../../../redux/store';
 
 const Login = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const onLogin = () => dispatch(onlogin());
+    const userID = (id) => dispatch(userId(id));
     const [user,setUser] = useState({
         name:'',
         password:''
@@ -31,6 +32,7 @@ const Login = () => {
         {
             alert("로그인이 성공적으로 되었습니다.");
             onLogin();
+            userID(user.name);
             setUser({name:'', password:''});
             navigate("/");
         }else{
@@ -41,14 +43,14 @@ const Login = () => {
 
     return (
         <div className={styles.login}>
-            <form className={styles.form} onSubmit={userPost}>
+            <form className={styles.form} onSubmit={(e)=>userPost(e)}>
                 <div>
                     <label htmlFor="user-id">아이디</label><br/>
-                    <input type="text" name="name" onChange={onchange}/>
+                    <input type="text" name="name" onChange={(e)=>onchange(e)}/>
                 </div>
                 <div>
                     <label htmlFor="user-password">비밀번호</label><br/>
-                    <input name="password" type="password" onChange={onchange}/>
+                    <input name="password" type="password" onChange={(e)=>onchange(e)}/>
                 </div>
                 <div style={{marginTop:10}}>
                 <button type="submit">로그인</button>
