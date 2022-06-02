@@ -37,16 +37,16 @@ const Member = () => {
             <form onSubmit={userPost}>
                 <div>
                     <label htmlFor="user-id">아이디</label><br/>
-                    <input type="text" name="name" onChange={onchange}/>
+                    <input type="text" name="name" onChange={(e)=>onchange(e)}/>
                 </div>
 
                 <div>
                     <label htmlFor="user-password">비밀번호</label><br/>
-                    <input name="password" type="password" onChange={onchange}/>
+                    <input name="password" type="password" onChange={(e)=>onchange(e)}/>
                 </div>
                 <div>
                     <label htmlFor="user-password-check">비밀번호체크</label><br/>
-                    <input name="repassword" type="password" onChange={onchange}/>
+                    <input name="repassword" type="password" onChange={(e)=>onchange(e)}/>
                 </div>
                 <div>
                     <input type="checkbox" name="user-term" />동의합니까?

@@ -1,12 +1,9 @@
 import axios from 'axios';
 
-export const post = async(send) => { 
-    await axios.post("/api/posts",
+export const editReply = async(replyId,replyContent) => { 
+    await axios.put(`/api/posts/${replyId}`,
     {
-        "userName":send.userName, 
-        "postTitle": send.postTitle, 
-        "postContent": send.postContent, 
-        "postType":send.postType
+        "postContent": replyContent
     },
     {
         headers:{

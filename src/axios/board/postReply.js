@@ -1,12 +1,10 @@
 import axios from 'axios';
 
-export const post = async(send) => { 
-    await axios.post("/api/posts",
+export const postReply = async(preply, postId) => { 
+    await axios.post(`/api/replies/${postId}`,
     {
-        "userName":send.userName, 
-        "postTitle": send.postTitle, 
-        "postContent": send.postContent, 
-        "postType":send.postType
+        "userName":preply.userName, 
+        "replyContent":preply.replyContent
     },
     {
         headers:{
@@ -15,5 +13,5 @@ export const post = async(send) => {
             'Authorization' : `Bearer ${localStorage.getItem('user-token')}`
         }
     }).then((response) => {})
-    .catch((response) => {console.log('Error!');})
+    .catch((response) => {})
 };

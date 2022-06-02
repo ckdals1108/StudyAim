@@ -1,12 +1,11 @@
 import axios from 'axios';
 
-export const post = async(send) => { 
-    await axios.post("/api/posts",
+export const editPost = async(postId,ekind,list) => { 
+    await axios.put(`/api/posts/${postId}`,
     {
-        "userName":send.userName, 
-        "postTitle": send.postTitle, 
-        "postContent": send.postContent, 
-        "postType":send.postType
+        "postTitle":list.postTitle, 
+        "postContent": list.postContent, 
+        "postType":ekind
     },
     {
         headers:{

@@ -1,11 +1,15 @@
 const initialState = {
     login:false,
-    userId:""
+    userId:"",
+    postId:"",
+    refesh:true,
 };
 
 export const ONLOGIN = 'ONLOGIN';
 export const OFFLOGIN = 'OFFLOGIN';
 export const USERID = 'USERID';
+export const POSTID = 'POSTID';
+export const REFRESH = 'REFESH';
 
 export function onlogin(){
     return {
@@ -20,11 +24,26 @@ export function userId(id){
     };
 }
 
+export function postId(id){
+    return {
+        type: POSTID,
+        payload:id
+    };
+}
+
 export function offlogin(){
     return {
         type: OFFLOGIN
     };
 }
+
+export function refresh(){
+    console.log("refresh");
+    return {
+        type: REFRESH
+    };
+}
+
 
 export function reducer(state = initialState, action) {
     switch(action.type){
@@ -42,6 +61,16 @@ export function reducer(state = initialState, action) {
             return {
                 ...state,
                 userId:action.payload
+            };
+        case POSTID:
+            return {
+                ...state,
+                postId:action.payload
+            };
+        case REFRESH:
+            return {
+                ...state,
+                refresh:!state.refresh
             }
         default:
             return state;

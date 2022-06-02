@@ -1,24 +1,34 @@
 import {React, useState} from 'react';
+import { useDispatch } from 'react-redux';
 import styles from './board.module.css';
 import { Link } from 'react-router-dom';
 import { getType } from '../../../axios/board/getType';
 import { useEffect } from 'react';
+import { postId } from '../../../redux/store';
 
 const Board = (props) => {
     const {kind, ekind} = props;
-    const [list,setList] = useState([{}]);
-    /*postContent: "test content 1"
-    postId: 1
-    postTitle: "test title 1"
-    postType: "JOB"
-    userId: 11*/
+    const dispatch = useDispatch();
+    const postID = (id) => dispatch(postId(id));
+
+    const [list,setList] = useState([{
+        postContent: "",
+        postTitle: "",
+        postType: "",
+        postId: null,
+        userName: null
+    }]);
     
+    const onclick = (id) => {
+        postID(id);
+    }
+
     useEffect(() => {
         async function fetchData(){
             setList(await getType(ekind));
         }
         fetchData();
-    })
+    },[props])
 
     return (
         <div className={styles.container}>
@@ -31,7 +41,9 @@ const Board = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {list.map(list => <tr key={list.postId}><td id="first">{list.postTitle}</td><td id="second">{list.userId}</td></tr>)}    
+                    {list.map(list => <tr key={list.postId}><td id="first"><Link style={{ textDecoration: 'none' }} 
+                    to={`/board/list?kind=${kind}&ekind=${ekind}`} onClick={() => onclick(list.postId)}>{list.postTitle}</Link>
+                    </td><td id="second">{list.userName}</td></tr>)}    
                 </tbody> 
             </table>
             <br/><div className={styles.button}>

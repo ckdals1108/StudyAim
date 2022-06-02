@@ -18,11 +18,11 @@ const Header = () => {
 
     return (
         <div className={styles.container}>
-            <Link to="/"><img style={styles.imagestyle} alt="logo" src="img/logo.png" /></Link>
+            <Link to="/" style={{ textDecoration: 'none' }}><img src="img/logo.png" /></Link>
             <div className={styles.mypage}>
             {localStorage.getItem('user-token') !== null?
-                <><img style={styles.user} alt="user" src="img/user.png"></img><Link to="/" onClick={onclick}>로그아웃</Link></>
-                :<><Link to="/login">로그인</Link></>
+                <><Link to="/mypage/info" style={{ textDecoration: 'none' }}><img style={styles.user} alt="user" src="img/user.png"></img></Link><Link to="/" style={{ textDecoration: 'none' }} onClick={()=>onclick()}>로그아웃</Link></>
+                :<><Link to="/login" style={{ textDecoration: 'none' }}>로그인</Link></>
             }
             </div>
         </div>
