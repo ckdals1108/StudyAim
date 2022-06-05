@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const editInfo = async(user) => {
     let success = false;
-    await axios.put("/api/users/modify",
+    await axios.put(`${process.env.REACT_APP_API_URL}/api/users/modify`,
     {
         "userName": user.name,
         "userPassword" : user.password,

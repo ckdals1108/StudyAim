@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const editPost = async(postId,ekind,list) => { 
-    await axios.put(`/api/posts/${postId}`,
+    await axios.put(`${process.env.REACT_APP_API_URL}/api/posts/${postId}`,
     {
         "postTitle":list.postTitle, 
         "postContent": list.postContent, 

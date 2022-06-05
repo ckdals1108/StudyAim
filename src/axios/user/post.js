@@ -1,10 +1,8 @@
-import React from 'react';
 import axios from 'axios';
-import { useDispatch } from 'react-redux';
 
 export const post = async(user) => {
     let success;
-    await axios.post("/api/auth/authenticate",
+    await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/authenticate`,
     {
         "username": user.name,
         "password" : user.password,

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const post = async(send) => { 
-    await axios.post("/api/posts",
+    await axios.post(`${process.env.REACT_APP_API_URL}/api/posts`,
     {
         "userName":send.userName, 
         "postTitle": send.postTitle, 

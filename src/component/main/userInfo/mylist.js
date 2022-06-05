@@ -2,16 +2,17 @@ import React from 'react';
 import styles from './mypage.module.css'
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
+import { useEffect } from 'react';
+import { getmylist } from '../../../axios/userInfo/getmylist';
+import PostReply from './postReply';
 
 const MyList = () => {
-    const { userId } = useSelector(state => ({
-        userId:state.userId
-    }));
-
     return (
         <div className={styles.container}>
-            <h1>내가 쓴 글 / 답글</h1>
-            <textarea className={styles.text_area} type='text' name="postTitle" placeholder='제목' value={userId} readOnly/>
+            <h1>내가 쓴 글</h1>
+            <PostReply menuType="myPosts"/>
+            <h1>내가 쓴 답글</h1>
+            <PostReply menuType="myReplies"/>
         </div>
     );
 };

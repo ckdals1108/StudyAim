@@ -23,11 +23,15 @@ const Member = () => {
         e.preventDefault(); 
         if(user.password === user.repassword)
         {
-            put(user);
-            setUser({name:'', password:''});
-            alert("축하합니다 회원가입이 정상적으로 처리되었습니다.");
-            alert("로그인을 해주세요.");
-            navigate("/login");
+            if(put(user)){
+                setUser({name:'', password:''});
+                alert("축하합니다 회원가입이 정상적으로 처리되었습니다.");
+                alert("로그인을 해주세요.");
+                navigate("/login");
+            }
+            else{
+                alert("중복된 아이디가 있습니다.");
+            }           
         }else
             alert("비밀번호가 일치하지 않습니다.");
     }

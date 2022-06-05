@@ -6,8 +6,18 @@
 
 .text_area {
 width: 800px;
-min-height: 400px;
+height : 5em;
 margin: 10px;
+font-size :large;
+resize:none;
+}
+
+.text_area2{
+    width: 800px;
+    height : 4em;
+    margin: 10px;
+    font-size :large;
+    resize:none;
 }
 
 .name {

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const postReply = async(preply, postId) => { 
-    await axios.post(`/api/replies/${postId}`,
+    await axios.post(`${process.env.REACT_APP_API_URL}/api/replies/${postId}`,
     {
         "userName":preply.userName, 
         "replyContent":preply.replyContent

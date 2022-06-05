@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const delReply = async(replyId) => { 
-    await axios.delete(`/api/replies/${replyId}`,
+    await axios.delete(`${process.env.REACT_APP_API_URL}/api/replies/${replyId}`,
     {
         headers:{
             'Content-type' : 'application/json',

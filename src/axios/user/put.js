@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 export default (user) => {
-    axios.put("/api/account/register",
+    let success = false;
+    axios.put(`${process.env.REACT_APP_API_URL}/api/account/register`,
     {
         "userName": user.name,
         "userPassword" : user.password,
@@ -12,6 +13,7 @@ export default (user) => {
             'Content-type' : 'application/json',
             'Accept' : 'application/json'
         }
-    }).then((response) => {console.log(response.data); return true})
-    .catch((response) => {console.log('Error!'); return false});
+    }).then((response) => {console.log(response.data); success = true})
+    .catch((response) => {console.log('Error!');});
+    return success
 };

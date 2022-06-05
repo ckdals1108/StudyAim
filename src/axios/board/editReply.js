@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const editReply = async(replyId,replyContent) => { 
-    await axios.put(`/api/posts/${replyId}`,
+    await axios.put(`${process.env.REACT_APP_API_URL}/api/posts/${replyId}`,
     {
         "postContent": replyContent
     },

@@ -4,7 +4,7 @@ import axios from 'axios';
 export const getReply = async(postId) => {
     let list = {};
     let send = [];
-    await axios.get(`/api/replies/${postId}`,
+    await axios.get(`${process.env.REACT_APP_API_URL}/api/replies/${postId}`,
     {
         headers:{
             'Content-type' : 'application/json',

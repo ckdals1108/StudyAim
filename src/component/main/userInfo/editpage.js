@@ -39,7 +39,7 @@ const EditPage = () => {
     return (
         <div className={styles.container}>
             <h1>회원 정보 수정</h1>
-            <div><label className={styles.name} htmlFor="cheese">이름 : </label><input className={styles.title_input} type='text' name="name" placeholder='이름 입력' onChange={(e) => onchange(e)} value={user.name}/><br/>
+            <div><label className={styles.name} htmlFor="cheese">이름 : </label><input className={styles.title_input} type='text' name="name" placeholder='이름 입력' onChange={(e) => onchange(e)} value={user.name} readOnly/><br/>
             <label htmlFor="cheese"> 비밀번호 : </label><input className={styles.title_input} type='password' name="password" placeholder='비밀번호 입력' onChange={(e) => onchange(e)} value={user.password}/><br/>
             <button onClick={e => edit(e)}>보내기</button></div>
         </div>

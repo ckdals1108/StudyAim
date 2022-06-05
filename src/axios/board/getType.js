@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const getType = async(ekind) => {
     let list = {};
-    await axios.get(`/api/posts?postType=${ekind}`,
+    await axios.get(`${process.env.REACT_APP_API_URL}/api/posts?postType=${ekind}`,
     {
         headers:{
             'Content-type' : 'application/json',

@@ -15,8 +15,8 @@ const Board = (props) => {
         postContent: "",
         postTitle: "",
         postType: "",
-        postId: null,
-        userName: null
+        postId: "",
+        userName: ""
     }]);
     
     const onclick = (id) => {
