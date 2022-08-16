@@ -10,6 +10,7 @@ import GetList from './board/getlist';
 import Mypage from './userInfo/mypage';
 import EditPage from './userInfo/editpage';
 import MyList from './userInfo/mylist';
+import OpenViduPage from '../openvidu/openvidupage';
 
 
 
@@ -31,6 +32,7 @@ const Main = () => {
                 <Route path="/board/write/license" element={<Write kind="자격증" ekind="LICENSE"/>}/>
                 <Route path="/board/list" element={<GetList />} />
             </Route>
+            <Route path="/webrtc/" element={<OpenViduPage />}/>
         </Routes>
     );
 };

@@ -2,7 +2,9 @@ import axios from 'axios';
 
 export default (user) => {
     let success = false;
-    axios.put(`${process.env.REACT_APP_API_URL}/api/account/register`,
+    const host = process.env.REACT_APP_API_URL;
+    console.log(host);
+    axios.put(host + '/api/account/register',
     {
         "userName": user.name,
         "userPassword" : user.password,

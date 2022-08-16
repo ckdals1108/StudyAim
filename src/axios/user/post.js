@@ -2,7 +2,9 @@ import axios from 'axios';
 
 export const post = async(user) => {
     let success;
-    await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/authenticate`,
+    const host = process.env.REACT_APP_API_URL;
+    console.log(host);
+    await axios.post(host + '/api/auth/authenticate',
     {
         "username": user.name,
         "password" : user.password,
