@@ -4,7 +4,7 @@ import styles from './home.module.css';
 const Home = () => {
     return (
         <div className={styles.center}>
-                <div className={styles.box}>
+                {/*<div className={styles.box}>
                     할일 리스트
                     <div className={styles.list}>
                         <p className={styles.topic}>오늘 공부한 시간 / 오늘 목표한 시간</p>
@@ -13,7 +13,7 @@ const Home = () => {
                         <p className={styles.topic}>오늘의 목표</p>
                         <p>프로그래밍 코딩하기</p>
                     </div>
-                </div>
+                </div>*/}
                 <div className={styles.box}>
                     인기 스터디방
                     <br/>

@@ -17,6 +17,7 @@ const Nav = () => {
 
     return (
         <div className={styles.container}>
+            <p onClick={()=>onclick("study")}>스터디방</p>
             <p onClick={()=>onclick("english")}>토익</p>
             <p onClick={()=>onclick("job")}>취업</p>
             <p onClick={()=>onclick("license")}>자격증</p>

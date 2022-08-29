@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { getType } from '../../../axios/board/getType';
 import { useEffect } from 'react';
 import { postId } from '../../../redux/store';
+import OVGet from '../../../axios/openvidu/get'
 
 const Board = (props) => {
     const {kind, ekind} = props;

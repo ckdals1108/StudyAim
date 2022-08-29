@@ -6,11 +6,13 @@ import Login from './login/login';
 import Member from './member/member';
 import Board from './board/board';
 import Write from './board/wrtie';
+import Study from './board/study';
 import GetList from './board/getlist';
 import Mypage from './userInfo/mypage';
 import EditPage from './userInfo/editpage';
 import MyList from './userInfo/mylist';
 import OpenViduPage from '../openvidu/openvidupage';
+import Ovwrite from './board/ovwrite';
 
 
 
@@ -24,6 +26,7 @@ const Main = () => {
                 <Route path="/mypage/info" element={<Mypage/>}/>
                 <Route path="/mypage/edit" element={<EditPage/>}/>
                 <Route path="/mypage/myList" element={<MyList/>}/>
+                <Route path="/board/study" element={<Study/>}/>
                 <Route path="/board/english" element={<Board kind="토익" ekind="ENGLISH" />}/>
                 <Route path="/board/job" element={<Board kind="취업" ekind="JOB"/>}/>
                 <Route path="/board/license" element={<Board kind="자격증" ekind="LICENSE"/>}/>
@@ -31,6 +34,7 @@ const Main = () => {
                 <Route path="/board/write/job" element={<Write kind="취업" ekind="JOB"/>}/>
                 <Route path="/board/write/license" element={<Write kind="자격증" ekind="LICENSE"/>}/>
                 <Route path="/board/list" element={<GetList />} />
+                <Route path="/board/ovwrite" element={<Ovwrite/>}/>
             </Route>
             <Route path="/webrtc/" element={<OpenViduPage />}/>
         </Routes>

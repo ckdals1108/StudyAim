@@ -1,20 +1,21 @@
 import axios from 'axios';
 import { OpenVidu } from 'openvidu-browser';
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import './App.css';
 import UserVideoComponent from './UserVideoComponent';
+import qs from 'query-string';
 
 const OPENVIDU_SERVER_URL = 'https://' + window.location.hostname + ':4443';
 const OPENVIDU_SERVER_SECRET = 'MY_SECRET';
-
+const HOST = process.env.REACT_APP_API_URL;
+let query;
 
 class OpenViduPage extends Component {
     constructor(props) {
         super(props);
-
         this.state = {
-            mySessionId: 'SessionA',
-            myUserName: 'Participant' + Math.floor(Math.random() * 100),
+            mySessionId: undefined,
+            myUserName: undefined,
             session: undefined,
             mainStreamManager: undefined,
             publisher: undefined,
@@ -31,7 +32,16 @@ class OpenViduPage extends Component {
     }
 
     componentDidMount() {
+        query = qs.parse(window.location.search);
         window.addEventListener('beforeunload', this.onbeforeunload);
+        this.setState({
+            mySessionId: query.sessionId,
+            myUserName: query.userName,
+            session: undefined,
+            mainStreamManager: undefined,
+            publisher: undefined,
+            subscribers: [],
+        });
     }
 
     componentWillUnmount() {
@@ -171,7 +181,7 @@ class OpenViduPage extends Component {
 
         const mySession = this.state.session;
 
-        axios.put(`http://localhost:8080/api/openvidu/session/${this.state.mySessionId}/exit`, {
+        axios.put(HOST + '/api/openvidu/session/${this.state.mySessionId}/exit', {
             headers: {
                 Authorization : "Basic T1BFTlZJRFVBUFA6TVlfU0VDUkVU",
                 "Content-Type" : "application/json",
@@ -187,12 +197,12 @@ class OpenViduPage extends Component {
         // Empty all properties...
         this.OV = null;
         this.setState({
+            mySessionId: query.sessionId,
+            myUserName: query.userName,
             session: undefined,
-            subscribers: [],
-            mySessionId: 'SessionA',
-            myUserName: 'Participant' + Math.floor(Math.random() * 100),
             mainStreamManager: undefined,
-            publisher: undefined
+            publisher: undefined,
+            subscribers: [],
         });
     }
 

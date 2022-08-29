@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './body.module.css'
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Link, Route, Routes, Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import qs from 'query-string';
 
 const Body = () => {
