@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { offlogin } from '../../../redux/store';
+import user from '../../../img/user.png';
+import logo from '../../../img/logo.png';
 
 const Header = () => {
     const { login } = useSelector(state => ({
@@ -18,10 +20,10 @@ const Header = () => {
 
     return (
         <div className={styles.container}>
-            <Link to="/" style={{ textDecoration: 'none' }}><img src="img/logo.png" /></Link>
+            <Link to="/" style={{ textDecoration: 'none' }}><img src={logo}/></Link>
             <div className={styles.mypage}>
             {localStorage.getItem('user-token') !== null?
-                <><Link to="/mypage/info" style={{ textDecoration: 'none' }}><img style={styles.user} alt="user" src="img/user.png"></img></Link><Link to="/" style={{ textDecoration: 'none' }} onClick={()=>onclick()}>로그아웃</Link></>
+                <><Link to="/mypage/info" style={{ textDecoration: 'none' }}><img style={styles.user} alt="user" src={user}></img></Link><Link to="/" style={{ textDecoration: 'none' }} onClick={()=>onclick()}>로그아웃</Link></>
                 :<><Link to="/login" style={{ textDecoration: 'none' }}>로그인</Link></>
             }
             </div>

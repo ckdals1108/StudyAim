@@ -13,6 +13,7 @@ import EditPage from './userInfo/editpage';
 import MyList from './userInfo/mylist';
 import OpenViduPage from '../openvidu/openvidupage';
 import Ovwrite from './board/ovwrite';
+import Ovedit from './board/ovedit';
 
 
 
@@ -35,6 +36,7 @@ const Main = () => {
                 <Route path="/board/write/license" element={<Write kind="자격증" ekind="LICENSE"/>}/>
                 <Route path="/board/list" element={<GetList />} />
                 <Route path="/board/ovwrite" element={<Ovwrite/>}/>
+                <Route path="/board/ovedit" element={<Ovedit />}/>
             </Route>
             <Route path="/webrtc/" element={<OpenViduPage />}/>
         </Routes>

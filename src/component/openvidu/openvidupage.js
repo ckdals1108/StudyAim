@@ -4,18 +4,21 @@ import React, { Component, useState } from 'react';
 import './App.css';
 import UserVideoComponent from './UserVideoComponent';
 import qs from 'query-string';
+import { Enter } from '../../axios/openvidu/enter';
+import { Exit } from '../../axios/openvidu/exit';
 
-const OPENVIDU_SERVER_URL = 'https://' + window.location.hostname + ':4443';
-const OPENVIDU_SERVER_SECRET = 'MY_SECRET';
+const OPENVIDU_SERVER_URL = process.env.REACT_APP_OPENVIDU_URL;
+const OPENVIDU_SERVER_SECRET = 'studyaim';
 const HOST = process.env.REACT_APP_API_URL;
 let query;
 
 class OpenViduPage extends Component {
     constructor(props) {
         super(props);
+        query = qs.parse(window.location.search);
         this.state = {
-            mySessionId: undefined,
-            myUserName: undefined,
+            mySessionId: query.sessionId,
+            myUserName: query.userName,
             session: undefined,
             mainStreamManager: undefined,
             publisher: undefined,
@@ -87,6 +90,10 @@ class OpenViduPage extends Component {
         // --- 1) Get an OpenVidu object ---
 
         this.OV = new OpenVidu();
+
+        console.log(OPENVIDU_SERVER_URL);
+
+        Enter(this.state.mySessionId);
 
         // --- 2) Init a session ---
 
@@ -181,14 +188,7 @@ class OpenViduPage extends Component {
 
         const mySession = this.state.session;
 
-        axios.put(HOST + '/api/openvidu/session/${this.state.mySessionId}/exit', {
-            headers: {
-                Authorization : "Basic T1BFTlZJRFVBUFA6TVlfU0VDUkVU",
-                "Content-Type" : "application/json",
-            },
-        }).then(response => {
-            console.log("leave Session to Spring", response);
-        });
+        Exit(this.state.mySessionId);
 
         if (mySession) {
             mySession.disconnect();

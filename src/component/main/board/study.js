@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { OVGet } from '../../../axios/openvidu/get';
+import study from '../../../img/study.png';
 
 const Study = (props) => {
     const navigate = useNavigate();
@@ -29,6 +30,10 @@ const Study = (props) => {
         }
     }
 
+    const edit = (sessionId) => {
+        navigate(`/board/ovedit?sessionId=${sessionId}`);
+    }
+
     useEffect(() => {
         async function fetchData(){
            setList(
@@ -44,8 +49,8 @@ const Study = (props) => {
                     스터디방
                     <br/>
                     {list && list.map(list => <div key={list.sessionId} className={styles.poproom}><p onClick={()=>onclick(list.sessionId, userId)}>
-                        <img style={styles.imagestyle} alt="study" src="img/study.png" />
-                        <p className={styles.name}>{list.sessionTitle}</p></p>
+                        <img style={styles.imagestyle} alt="study" src={study} />
+                        <p className={styles.name}>{list.sessionTitle}</p></p>{list.sessionModerator===userId?<button className={styles.edit} onClick={()=>edit(list.sessionId)}>수정/삭제</button>:<button className={styles.noedit}></button>}
                     </div>)}
                 </div>
                 <div className={styles.button}>

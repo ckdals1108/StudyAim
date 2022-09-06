@@ -35,3 +35,15 @@
     width : 80%;
     margin-top : 20px;
 }
+
+.edit {
+    width : 75px;
+    height : 25px;
+}
+
+.noedit {
+    background-color: #00ff0000;
+    border-color : #00ff0000;
+    width : 75px;
+    height : 25px;
+}

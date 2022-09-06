@@ -9,7 +9,7 @@ import { reducer } from './redux/store';
 import {composeWithDevTools} from 'redux-devtools-extension'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
+localStorage.removeItem('user-token');
 const store = createStore(reducer, composeWithDevTools());
 root.render(
   <React.StrictMode>

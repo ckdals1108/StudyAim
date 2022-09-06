@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './home.module.css';
+import study from '../../../img/study.png';
 
 const Home = () => {
     return (
@@ -18,15 +19,15 @@ const Home = () => {
                     인기 스터디방
                     <br/>
                     <div className={styles.poproom}>
-                    <p><img style={styles.imagestyle} alt="study" src="img/study.png" /></p>
-                        <p className={styles.name}>둘만의 독서방</p>
+                    <p><img style={styles.imagestyle} alt="study" src={study} /></p>
+                        <p className={styles.name}>둘만의 독서방</p>    
                     </div>
                     <div className={styles.poproom}>
-                    <p><img style={styles.imagestyle} alt="study" src="img/study.png" /></p>
+                    <p><img style={styles.imagestyle} alt="study" src={study} /></p>
                         <p className={styles.name}>취업 뽀개기!</p>
                     </div>
                     <div className={styles.poproom}>
-                    <p><img style={styles.imagestyle} alt="study" src="img/study.png" /></p>
+                    <p><img style={styles.imagestyle} alt="study" src={study} /></p>
                         <p className={styles.name}>토익 & 스피킹</p>
                     </div>             
                 </div>
@@ -34,11 +35,11 @@ const Home = () => {
                     관심 스터디방
                     <br/>
                     <div className={styles.poproom}>
-                    <p><img style={styles.imagestyle} alt="study" src="img/study.png" /></p>
+                    <p><img style={styles.imagestyle} alt="study" src={study} /></p>
                         <p className={styles.name}>둘만의 독서방</p>
                     </div>
                     <div className={styles.poproom}>
-                    <p><img style={styles.imagestyle} alt="study" src="img/study.png" /></p>
+                    <p><img style={styles.imagestyle} alt="study" src={study} /></p>
                         <p className={styles.name}>자격증 취득방</p>
                     </div>
                 </div>
