@@ -14,6 +14,7 @@ import MyList from './userInfo/mylist';
 import OpenViduPage from '../openvidu/openvidupage';
 import Ovwrite from './board/ovwrite';
 import Ovedit from './board/ovedit';
+import Kakoauth from './login/kakoauth';
 
 
 
@@ -39,6 +40,7 @@ const Main = () => {
                 <Route path="/board/ovedit" element={<Ovedit />}/>
             </Route>
             <Route path="/webrtc/" element={<OpenViduPage />}/>
+            <Route path="/kakao/oauth" element={<Kakoauth REST_API_KEY="d9a87ff60b8dbb5c22eaf114ed0f30d4" REDIRECT_URI="http://localhost:3000/kakao/oauth"/>}/>
         </Routes>
     );
 };
