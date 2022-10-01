@@ -32,6 +32,7 @@ class OpenViduPage extends Component {
         this.handleChangeUserName = this.handleChangeUserName.bind(this);
         this.handleMainVideoStream = this.handleMainVideoStream.bind(this);
         this.onbeforeunload = this.onbeforeunload.bind(this);
+        this.mikeController = this.mikeController.bind(this);
     }
 
     componentDidMount() {
@@ -83,6 +84,26 @@ class OpenViduPage extends Component {
             this.setState({
                 subscribers: subscribers,
             });
+        }
+    }
+
+    async mikeController() {
+        try{
+                var newPublisher = this.OV.initPublisher(undefined, {
+                    ...this.state.publisher,
+                    publishAudio: !this.publisher.publishAudio,
+                });
+
+                await this.state.session.unpublish(this.state.mainStreamManager);
+    
+                await this.state.session.publish(newPublisher)
+                this.setState({
+                    ...this.state,
+                    publisher: newPublisher,
+                });
+        }
+        catch (e) {
+            console.error(e);
         }
     }
 
@@ -296,6 +317,10 @@ class OpenViduPage extends Component {
                                 onClick={this.leaveSession}
                                 value="Leave session"
                             />
+                        </div>
+
+                        <div>
+                            <button onClick={this.mikeController}>{this.state.publisher.publishAudio?<>Mike OFF</>:<>Mike ON</>}</button>
                         </div>
 
                         {this.state.mainStreamManager !== undefined ? (
