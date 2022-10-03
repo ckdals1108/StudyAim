@@ -17,7 +17,6 @@ const Kakoauth = (props) => {
             const data = await GetToken(query.code);
             if(data)
             {
-                console.log(data);
                 setAccessToken(data.access_token);
             }
             /*else
@@ -30,6 +29,7 @@ const Kakoauth = (props) => {
     },[]);
 
     useEffect(() => {
+        console.log("accessToken : " + accessToken);
         async function getInfo(){
             const data = await GetInfo(accessToken);            
         }
