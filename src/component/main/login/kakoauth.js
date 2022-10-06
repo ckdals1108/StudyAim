@@ -9,7 +9,7 @@ import { GetInfo } from '../../../axios/kako/getInfo';
 const Kakoauth = (props) => {
     const location  = useLocation();
     const query = qs.parse(location.search);
-    const [accessToken,setAccessToken] = useState("");
+    const [accessToken,setAccessToken] = useState();
     const navigator = useNavigate();
 
     useEffect(() => {
@@ -33,7 +33,8 @@ const Kakoauth = (props) => {
         async function getInfo(){
             const data = await GetInfo(accessToken);            
         }
-        getInfo();
+        if (accessToken !== undefined)
+            getInfo();
     },[accessToken]);
 
     return (

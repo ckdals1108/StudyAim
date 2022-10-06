@@ -12,6 +12,6 @@ export const GetInfo = async(ACCESS_TOKEN) => {
             'Content-type' : 'application/json',
             'Accept' : 'application/json'
         }
-    }).then((response) => {})
-    .catch((response) => {})
+    }).then((response) => {console.log(response)})
+    .catch((response) => {console.log(response)})
 };
