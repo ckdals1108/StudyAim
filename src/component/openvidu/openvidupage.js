@@ -320,7 +320,8 @@ class OpenViduPage extends Component {
                         </div>
 
                         <div>
-                            <button onClick={this.mikeController}>{this.state.publisher.publishAudio?<>Mike OFF</>:<>Mike ON</>}</button>
+                            {this.state.publisher?this.state.publisher.publishAudio?<button onClick={this.mikeController}>Mike OFF</button>:
+                            <button onClick={this.mikeController}>Mike ON</button>:<></>}
                         </div>
 
                         {this.state.mainStreamManager !== undefined ? (
