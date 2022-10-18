@@ -6,7 +6,7 @@ export const OVDelete = async(sessionId) => {
         headers:{
             'Content-type' : 'application/json',
             'Accept' : 'application/json',
-            'Authorization':'Basic T1BFTlZJRFVBUFA6TVlfU0VDUkVU'
+            'Authorization':'Basic T1BFTlZJRFVBUFA6c3R1ZHlhaW0='
         }
     }).then((response) => {console.log('succeess!')})
     .catch((response) => {console.log('Error!');})

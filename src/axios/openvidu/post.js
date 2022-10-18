@@ -9,7 +9,7 @@ export const post = async(send) => {
     },
     {
         headers: {
-            "Authorization" : "Basic T1BFTlZJRFVBUFA6TVlfU0VDUkVU",
+            "Authorization" : "Basic T1BFTlZJRFVBUFA6c3R1ZHlhaW0=",
             "Content-Type" : "application/json",
         },
     }
