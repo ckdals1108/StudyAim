@@ -19,7 +19,7 @@ const Login = () => {
     });
 
     const REST_API_KEY = "d9a87ff60b8dbb5c22eaf114ed0f30d4";
-    const REDIRECT_URI = "http://localhost:3000/kakao/oauth";
+    const REDIRECT_URI = "http://studyaim.ml/kakao/oauth";
     const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 
     const onchange = e =>{
