@@ -41,11 +41,12 @@ const Kakoauth = (props) => {
         async function getInfo(){
             const data = await GetInfo(accessToken);      
             console.log(data);
-            let username = data.username.split("@")[0];
+            let username = data.username;
             alert(`${username}님 안녕하세요.\n로그인이 성공적으로 되었습니다.`);
             onLogin();
+            localStorage.setItem('user-token', data.token);
             userID(username);
-            navigator("/");      
+            navigator("/");
         }
         if (accessToken !== undefined)
         {

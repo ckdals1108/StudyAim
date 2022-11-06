@@ -37,6 +37,7 @@ const Wrtie = (props) => {
 
     return (
         <div className={styles.App}>
+            {console.log(userId)}
             <h1>{kind}</h1>
             <form onSubmit={usePost}>
                 <div className={styles.form_wrapper}>

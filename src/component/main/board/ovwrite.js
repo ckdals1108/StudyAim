@@ -29,7 +29,7 @@ const Ovwrite = (props) => {
         e.preventDefault();
         await post(use);
         alert("글쓰기가 완료되었습니다.");
-        navigate(`/board/study`);
+        navigate(`/board/studyRoom`);
     }
 
     return (

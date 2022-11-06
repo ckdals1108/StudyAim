@@ -15,7 +15,6 @@ root.render(
   <React.StrictMode>
       <BrowserRouter>
       <Provider store={store}>
-        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/>
         <Main /> 
       </Provider>
       </BrowserRouter>

@@ -1,21 +1,17 @@
 import axios from 'axios';
 
-export default (user) => {
+export const put = async(user) => {
     let success = false;
-    const host = process.env.REACT_APP_API_URL;
-    console.log(host);
-    axios.put(host + '/api/account/register',
+    await axios.put(`${process.env.REACT_APP_API_URL}/api/account/register`,
     {
         "userName": user.name,
-        "userPassword" : user.password,
-        "userEnabled" : true
+        "userPassword": user.password,
     },
     {
         headers:{
             'Content-type' : 'application/json',
-            'Accept' : 'application/json'
         }
     }).then((response) => {console.log(response.data); success = true})
-    .catch((response) => {console.log('Error!');});
-    return success
+    .catch((response) => {console.log(response);});
+    return success;
 };

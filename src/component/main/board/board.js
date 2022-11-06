@@ -13,11 +13,11 @@ const Board = (props) => {
     const postID = (id) => dispatch(postId(id));
 
     const [list,setList] = useState([{
-        postContent: "",
-        postTitle: "",
-        postType: "",
-        postId: "",
-        userName: ""
+        postContent: null,
+        postTitle: null,
+        postType: null,
+        postId: null,
+        userName: null
     }]);
     
     const onclick = (id) => {
@@ -42,7 +42,7 @@ const Board = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {list.map(list => <tr key={list.postId}><td id="first"><Link style={{ textDecoration: 'none' }} 
+                    {list && list.map(list => <tr key={list.postId}><td id="first"><Link style={{ textDecoration: 'none' }} 
                     to={`/board/list?kind=${kind}&ekind=${ekind}`} onClick={() => onclick(list.postId)}>{list.postTitle}</Link>
                     </td><td id="second">{list.userName}</td></tr>)}    
                 </tbody> 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './member.module.css'
-import put from '../../../axios/user/put';
+import * as Put from '../../../axios/user/put';
 import { useNavigate } from "react-router-dom";
 
 const Member = () => {
@@ -19,11 +19,12 @@ const Member = () => {
         })
     }
 
-    const userPost = (e) => {
+    const userPost = async(e) => {
         e.preventDefault(); 
+        const put = await Put.put(user)
         if(user.password === user.repassword)
         {
-            if(put(user)){
+            if(put){
                 setUser({name:'', password:''});
                 alert("축하합니다 회원가입이 정상적으로 처리되었습니다.");
                 alert("로그인을 해주세요.");
@@ -35,6 +36,8 @@ const Member = () => {
         }else
             alert("비밀번호가 일치하지 않습니다.");
     }
+
+    
     
     return (
         <div className={styles.member}>
