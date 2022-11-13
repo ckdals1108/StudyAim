@@ -6,6 +6,7 @@ import UserVideoComponent from './UserVideoComponent';
 import qs from 'query-string';
 import { Enter } from '../../axios/openvidu/enter';
 import { Exit } from '../../axios/openvidu/exit';
+import { Link } from 'react-router-dom';
 
 const OPENVIDU_SERVER_URL = process.env.REACT_APP_OPENVIDU_URL;
 const OPENVIDU_SERVER_SECRET = 'studyaim';
@@ -300,6 +301,7 @@ class OpenViduPage extends Component {
                                 </p>
                                 <p className="text-center">
                                     <input className="btn btn-lg btn-success" name="commit" type="submit" value="JOIN" />
+                                    <Link to="/"><button>홈으로</button></Link>
                                 </p>
                             </form>
                         </div>
@@ -318,24 +320,6 @@ class OpenViduPage extends Component {
                                 value="Leave session"
                             />
                         </div>
-
-                        <div>
-                            {this.state.publisher?this.state.publisher.publishAudio?<button onClick={this.mikeController}>Mike OFF</button>:
-                            <button onClick={this.mikeController}>Mike ON</button>:<></>}
-                        </div>
-
-                        {this.state.mainStreamManager !== undefined ? (
-                            <div id="main-video" className="col-md-6">
-                                <UserVideoComponent streamManager={this.state.mainStreamManager} />
-                                <input
-                                    className="btn btn-large btn-success"
-                                    type="button"
-                                    id="buttonSwitchCamera"
-                                    onClick={this.switchCamera}
-                                    value="Switch Camera"
-                                />
-                            </div>
-                        ) : null}
                         <div id="video-container" className="col-md-6">
                             {this.state.publisher !== undefined ? (
                                 <div className="stream-container col-md-6 col-xs-6" onClick={() => this.handleMainVideoStream(this.state.publisher)}>
